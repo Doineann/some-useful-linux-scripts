@@ -17,7 +17,3 @@ fi
 
 echo "Defragmenting filesystem..."
 sudo e4defrag  /
-
-echo
-echo "Done! Press a key to quit..."
-read -n 1

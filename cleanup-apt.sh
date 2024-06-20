@@ -6,12 +6,5 @@ if [ $EUID != 0 ]; then
     exit $?
 fi
 
-echo -e "Cleaning up APT cache..."
-sudo apt-get clean
-
-echo -e "Autoremoving packages..."
+echo -e "Cleaning up apt packages..."
 sudo apt --purge autoremove
-
-echo
-echo -e "Done! Press a key to quit..."
-read -n 1
