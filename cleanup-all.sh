@@ -1,11 +1,15 @@
 #!/bin/bash
 
-sudo ./cleanup-apt.sh
-sudo ./cleanup-apt-cache.sh
-sudo ./cleanup-old-snap-packages.sh
-sudo ./cleanup-sysd-journals.sh
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-./cleanup-thumbnail-cache.sh
+echo $SCRIPT_DIR
+
+sudo $SCRIPT_DIR/cleanup-apt.sh
+sudo $SCRIPT_DIR/cleanup-apt-cache.sh
+sudo $SCRIPT_DIR/cleanup-old-snap-packages.sh
+sudo $SCRIPT_DIR/cleanup-sysd-journals.sh
+
+$SCRIPT_DIR/cleanup-thumbnail-cache.sh
 
 echo
 echo -e "Done! Press a key to quit..."
