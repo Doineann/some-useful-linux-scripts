@@ -28,12 +28,12 @@ update_urls() {
     cp "$FILE" "$FILE.$TIMESTAMP.bak"
     if [ "$COUNTRY_CODE" == "none" ]; then
         # If no country code, remove any 2-letter country code (ignore comments)
-        sed -i '/^[^#]/s|http://[a-zA-Z][a-zA-Z]\.\(.*\)\.ubuntu\.com|http://\1.ubuntu.com|g' "$FILE"
+        sed -i '/^[^#]/s|http://[a-zA-Z][a-zA-Z]\.\(.*\)\.ubuntu\.com|http://\1.archive.ubuntu.com|g' "$FILE"
     else
         # First pass: replace country code (ignore comments)
-        sed -i "/^[^#]/s|http://\([a-zA-Z]\{2\}\)\.\([a-zA-Z0-9.-]*\)\.ubuntu.com/|http://$COUNTRY_CODE.\2.ubuntu.com/|g" "$FILE"
+        sed -i "/^[^#]/s|http://\([a-zA-Z]\{2\}\)\.\([a-zA-Z0-9.-]*\)\.archive.ubuntu.com/|http://$COUNTRY_CODE.\2.archive.ubuntu.com/|g" "$FILE"
         # Second pass: add country code only if missing (ignore comments)
-        sed -i "/^[^#]/ {/http:\/\/[a-zA-Z0-9.-]*\.ubuntu\.com\// { /http:\/\/[a-zA-Z]\{2\}\./! s|http://|http://$COUNTRY_CODE.| } }" "$FILE"
+        sed -i "/^[^#]/ {/http:\/\/[a-zA-Z0-9.-]*\.archive.ubuntu\.com\// { /http:\/\/[a-zA-Z]\{2\}\./! s|http://|http://$COUNTRY_CODE.| } }" "$FILE"
     fi
     echo "Backup of original file saved as $FILE.$TIMESTAMP.bak"
 }
