@@ -1,9 +1,8 @@
 #!/bin/bash
 
 if [ "$EUID" -ne 0 ]; then
-    echo "This script requires elevated privileges."
-    sudo "$0" "$@"
-    exit $?
+    echo "This script requires elevated privileges. Please run as root or use sudo."
+    exit 1
 fi
 
 if [ $# -eq 0 ]; then

@@ -1,9 +1,8 @@
 #!/bin/bash
 
-if [ $EUID != 0 ]; then
-    echo "This Script requires elevated privileges"
-    sudo "$0" "$@"
-    exit $?
+if [ "$EUID" -ne 0 ]; then
+    echo "This script requires elevated privileges. Please run as root or use sudo."
+    exit 1
 fi
 
 echo "Checking if there is an upgrade for this distro..."
