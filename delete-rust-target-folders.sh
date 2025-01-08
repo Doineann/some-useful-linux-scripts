@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "The following folders commands will be executed:"
+echo "The following folders will be removed:"
 
 find . -name target -type d -exec echo rm -rf {} \;
 
