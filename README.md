@@ -1,2 +1,2 @@
 
-Just a bunch of useful Linux scripts. Mainly for cleaning up VMs and making drives 'compressible'.
+Just a bunch of (semi-)useful Linux scripts. Mainly for easy configuration or cleaning up VMs and making their VHDs more 'compressible'.
