@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "The following folders will be removed:"
+echo "The following (hopefully Rust-related) folders will be removed:"
 
 find . -name target -type d -exec echo rm -rf {} \;
 
