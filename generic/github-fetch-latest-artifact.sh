@@ -66,7 +66,8 @@ while [ "$#" -gt 0 ]; do
             fi
             if [ -n "$ARTIFACT_URL" ]; then
                 OUTPUT_PATH="$OUTPUT_DIR/$ARTIFACT_FILENAME"
-                curl "$ARTIFACT_URL" -o "$OUTPUT_PATH"
+                echo "Downloading $ARTIFACT_URL ..."
+                wget --show-progress -O "$OUTPUT_PATH" "$ARTIFACT_URL" > /dev/null
                 exit 0
             else
                 echo "Error: No artifact found"
